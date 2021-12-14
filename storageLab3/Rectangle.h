@@ -13,6 +13,8 @@ public:
 
     Rectangle(const Rectangle& rec);
 
-    void showName() override;
+    void fooname() override;
+
+    void perimeter() override;
 };
 

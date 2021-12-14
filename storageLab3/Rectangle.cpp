@@ -16,6 +16,12 @@ Rectangle::Rectangle(const Rectangle& tr) {
 	b = tr.b;
 }
 
-void Rectangle::showName() {
-	std::cout << "Rectangle";
+void Rectangle::fooname() {
+	std::cout << "It's rectangle";
 };
+
+void Rectangle::perimeter() {
+	int per = (a + b) * 2;
+	printf("Perimter of the rectangular : %d",per);
+
+}

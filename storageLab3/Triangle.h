@@ -13,6 +13,8 @@ public:
 
     Triangle(const Triangle& tr);
 
-    void showName() override;
+    void fooname() override;
+
+    void perimeter() override;
 };
 

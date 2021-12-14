@@ -1,7 +1,9 @@
 #pragma once
-class Item
+class Item//base abstract class
 {
 public:
-	virtual void showName()=0;
+	virtual void fooname()=0;
+
+	virtual void perimeter() = 0;
 };
 

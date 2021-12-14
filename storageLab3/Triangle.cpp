@@ -19,6 +19,12 @@ Triangle::Triangle(const Triangle& tr) {
 	c = tr.c;
 }
 
-void Triangle::showName(){
-	std::cout << "Triangle";
+void Triangle::fooname(){
+	std::cout << "It's triangle";
 };
+
+
+void Triangle::perimeter() {
+	int per = a + b + c;
+	printf("Perimeter of the triangle : %d ",per);
+}

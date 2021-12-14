@@ -22,10 +22,10 @@ public:
 				storage2[i] = storage[i];
 				
 			}
+			delete[] storage;
 		}
 		storage2[size] = newobj;
 		size++;
-		delete[] storage;
 		storage = storage2;
 		
 	}
@@ -50,6 +50,11 @@ public:
 
 	int getCount() {
 		return size;
+	}
+
+	bool isObj(int k) {
+		if (storage[k] != nullptr)return true;
+		else return false;
 	}
 
 	void removeObj(int k) {
