@@ -140,12 +140,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Item.cpp" />
+    <ClCompile Include="Rectangle.cpp" />
     <ClCompile Include="Storage.cpp" />
     <ClCompile Include="storageLab3.cpp" />
+    <ClCompile Include="Triangle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Item.h" />
+    <ClInclude Include="Rectangle.h" />
     <ClInclude Include="Storage.h" />
+    <ClInclude Include="Triangle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

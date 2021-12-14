@@ -53,7 +53,7 @@ public:
 	}
 
 	void removeObj(int k) {
-		if (size != 0) {
+		if (size != 0 && k<size) {
 			Item** storage2 = new Item * [size - 1];
 
 			for (int i = 0; i < k; i++) {
@@ -69,6 +69,16 @@ public:
 		}
 
 	}
+	
+	
+	
+	
+		~Storage() {
+			for (int i = 0; i < size; i++) {
+				delete storage[i];
+			}
+			delete[] storage;
+		}
 
 
 
