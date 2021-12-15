@@ -45,6 +45,7 @@ void cycle(Storage& st, int q) {
 			else printf("No object to call");
 			break;
 		}
+		default:break;
 		}
 	}
 	 int e = clock();//end time

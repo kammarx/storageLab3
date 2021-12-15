@@ -16,6 +16,8 @@ public:
 	Storage(int s) {
 		size = s;
 		storage = new Item*[size];
+		for (int i = 0; i < size; i++)
+			storage[i] = nullptr;
 	}
 
 	void addObjEnd(Item* newobj) {
@@ -104,20 +106,18 @@ public:
 	}
 
 	void fooNameStorage(int i) {
-		if (size != 0 && size > i) {
+		if (size != 0 && size > i && storage[i]!=nullptr) {
 			storage[i]->fooname();
 		}
 	}
 
 	void perimeterStorage(int i) {
-		if (size != 0 && size > i) {
+		if (size != 0 && size > i && storage[i] != nullptr) {
 			storage[i]->perimeter();
 		}
 	}
 	
-	void getNextObj(Item* obj) {
 
-	}
 
 
 	     ~Storage() {
