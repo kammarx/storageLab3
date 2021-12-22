@@ -6,6 +6,7 @@
 #include "Rectangle.h"
 #include "Triangle.h"
 
+using namespace std;
 
 void cycle(Storage& st, int q) {
 	srand((unsigned int)time(NULL));
@@ -24,10 +25,9 @@ void cycle(Storage& st, int q) {
 		switch (a) {
 		case 0: {
 			if (k == 0)
-				st.addObjEnd(new Rectangle);
+				st.addObjRandom(new Rectangle(), b);
 			else
-				st.addObjEnd(new Triangle);
-
+				st.addObjRandom(new Triangle(), b);
 			printf("addObject\n");
 			break;
 		}
@@ -42,7 +42,10 @@ void cycle(Storage& st, int q) {
 				else st.getObj(b).perimeter();
 				printf("\n");
 			}
-			else printf("No object to call");
+			else {
+
+				printf("No object to call\n");
+			}
 			break;
 		}
 		default:break;
@@ -52,9 +55,9 @@ void cycle(Storage& st, int q) {
 	 int time = e - s;//target time
 	printf("\nTime: %d ms\n", time);
 	printf("Amount of objects: %d\n", st.getCount());
+	cout << st.getCountFilled();
 }
 
-using namespace std;
 int main()
 {
 	srand((unsigned int)time(NULL));
@@ -68,6 +71,7 @@ int main()
 			storage.setObj(i, new Triangle());
 		}
 	}
+
 
 
 

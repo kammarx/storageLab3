@@ -22,6 +22,6 @@ void Rectangle::fooname() {
 
 void Rectangle::perimeter() {
 	int per = (a + b) * 2;
-	printf("Perimter of the rectangular : %d",per);
+	printf("Perimeter of the rectangular : %d",per);
 
 }

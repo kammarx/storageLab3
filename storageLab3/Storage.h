@@ -15,7 +15,7 @@ public:
 
 	Storage(int s) {
 		size = s;
-		storage = new Item*[size];
+		storage = new Item * [size];
 		for (int i = 0; i < size; i++)
 			storage[i] = nullptr;
 	}
@@ -35,22 +35,21 @@ public:
 		
 	}
 
-	void addObjRandom(Item* newobj,int q) {
-		srand((unsigned int)time(NULL));
-		Item** storage2 = new Item * [size + 1];
-		int k = rand() % q;
-		if (size != 0) {
-			for (int i = 0; i < k; i++) {
-				storage2[i] = storage[i];
-			}
-			storage2[k] = newobj;
-			for (int j = k+1; j < size; j++) {
-				storage2[j] = storage[j-1];
-			}
-			delete[] storage;
-			size = size + 1;
-			storage = storage2;
-		}
+	void addObjRandom(Item* newobj,int k) {
+		
+			Item** storage2 = new Item * [size + 1];
+				for (int i = 0; i < k; i++) {
+					storage2[i] = storage[i];
+				}
+				storage2[k] = newobj;
+				for (int j = k + 1; j < size+1; j++) {
+					storage2[j] = storage[j - 1];
+				}
+				delete[] storage;
+				size = size + 1;
+				storage = storage2;
+			
+		
 	
 	}
 
@@ -76,13 +75,22 @@ public:
 		return size;
 	}
 
+	int getCountFilled() {
+		int q = 0;
+		for (int i = 0; i < size; i++) {
+			if (storage[i] != nullptr)
+				q++;
+		}
+		return q;
+	}
+
 	bool isObj(int k) {
 		if (storage[k] != nullptr)return true;
 		else return false;
 	}
 
 	void removeObj(int k) {
-		if (size != 0 && k<size && size!=1) {
+		if (size > 0 && k<size && size!=1) {
 			Item** storage2 = new Item * [size - 1];
 
 			for (int i = 0; i < k; i++) {
@@ -92,7 +100,6 @@ public:
 			for (int j = k; j < size - 1; j++) {
 				storage2[j] = storage[j + 1];
 			}
-			delete storage[k];
 			delete[] storage;
 			size--;
 			storage = storage2;
@@ -103,6 +110,18 @@ public:
 			size = 0;
 		}
 
+	}
+
+	Item& getPrevObj(int k) {
+		if (k > 0) {
+			return *(this->storage[k - 1]);
+		}
+	}
+
+	Item& getNextObj(int k) {
+		if (k < size) {
+			return *(this->storage[k + 1]);
+		}
 	}
 
 	void fooNameStorage(int i) {
@@ -119,8 +138,7 @@ public:
 	
 
 
-
-	     ~Storage() {
+    ~Storage() {
 			for (int i = 0; i < size; i++) {
 				delete storage[i];
 			}
